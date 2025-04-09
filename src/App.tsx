@@ -1,8 +1,35 @@
+import { Routes, Route } from "react-router";
+import { LoginPage } from "./pages/LoginPage";
+import { SignupPage } from "./pages/SignupPage";
+import { PrivateRoute } from "./components/PrivateRoute";
+import { Layout } from "./components/Layout";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-xl"> Rick & Morty </h1>
-    </div>
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <div>Home Page</div>
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/characters"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <div>Characters Page</div>
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+    </Routes>
   );
 }
 
