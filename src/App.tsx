@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router";
+
 import { LoginPage } from "./pages/LoginPage";
 import { SignupPage } from "./pages/SignupPage";
+import { Characters } from "./pages/Characters";
+
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Layout } from "./components/Layout";
-
 function App() {
   return (
     <Routes>
@@ -24,7 +26,7 @@ function App() {
         element={
           <PrivateRoute>
             <Layout>
-              <div>Characters Page</div>
+              <Characters />
             </Layout>
           </PrivateRoute>
         }
