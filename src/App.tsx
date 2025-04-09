@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import { LoginPage } from "./pages/LoginPage";
 import { SignupPage } from "./pages/SignupPage";
 import { Characters } from "./pages/Characters";
+import { CharacterDetail } from "./pages/CharacterDetail";
 
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Layout } from "./components/Layout";
@@ -27,6 +28,16 @@ function App() {
           <PrivateRoute>
             <Layout>
               <Characters />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/characters/:id"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <CharacterDetail />
             </Layout>
           </PrivateRoute>
         }

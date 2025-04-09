@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router";
 import { useInView } from "react-intersection-observer";
 
 import { Character } from "@/types/character";
@@ -6,6 +7,7 @@ import { Character } from "@/types/character";
 import { useCharacters } from "@/hooks/useCharacters";
 
 export const CharacterList = () => {
+  // const navigate = useNavigate();
   const { ref, inView } = useInView();
   const {
     data,
@@ -43,9 +45,11 @@ export const CharacterList = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data.pages.flatMap((page) =>
           page.results.map((character: Character) => (
-            <div
+            <Link
+              to={`/characters/${character.id}`}
               key={character.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              // onClick={() => navigate(`/characters/${character.id}`)}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             >
               <div className="relative">
                 <img
@@ -86,7 +90,7 @@ export const CharacterList = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))
         )}
       </div>

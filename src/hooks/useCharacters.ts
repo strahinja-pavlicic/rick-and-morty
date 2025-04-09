@@ -1,7 +1,8 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { getCharacters } from "@/router/character";
-import { CharactersResponse } from "@/types/character";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { getCharacters, getCharacterById } from "@/router/character";
+import { CharactersResponse, Character } from "@/types/character";
 
+// Hook for paginated/infinite list
 export const useCharacters = () => {
   return useInfiniteQuery<CharactersResponse>({
     queryKey: ["characters"],
@@ -13,5 +14,15 @@ export const useCharacters = () => {
       return undefined;
     },
     initialPageParam: 1,
+    // staleTime: 1000 * 60 * 5, // 5 minutes cache
+  });
+};
+
+// Hook for fetching a single character
+export const useCharacter = (id: number) => {
+  return useQuery<Character>({
+    queryKey: ["character", id],
+    queryFn: () => getCharacterById(id),
+    enabled: !!id,
   });
 };
