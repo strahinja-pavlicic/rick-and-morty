@@ -55,7 +55,7 @@ export const CharacterList = () => {
             {data.pages.flatMap((page) =>
               page.results.map((character: Character) => (
                 <Link
-                  to={`/characters/${character.id}`}
+                  to={`/character/${character.id}`}
                   key={character.id}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                 >

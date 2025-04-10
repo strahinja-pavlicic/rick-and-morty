@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router";
 
-import { LoginPage } from "./pages/LoginPage";
-import { SignupPage } from "./pages/SignupPage";
-import { Characters } from "./pages/Characters";
-import { CharacterDetail } from "./pages/CharacterDetail";
-import { EpisodeDetail } from "./pages/EpisodeDetail";
-import { LocationDetail } from "./pages/LocationDetail";
+import { LoginPage } from "@/pages/LoginPage";
+import { SignupPage } from "@/pages/SignupPage";
+import { Characters } from "@/pages/Characters";
+import { CharacterDetail } from "@/pages/CharacterDetail";
+import { EpisodeDetail } from "@/pages/EpisodeDetail";
+import { LocationDetail } from "@/pages/LocationDetail";
 
-import { PrivateRoute } from "./components/PrivateRoute";
-import { Layout } from "./components/Layout";
+import { PrivateRoute } from "@/components/PrivateRoute";
+import { Layout } from "@/components/Layout";
 function App() {
   return (
     <Routes>
@@ -35,7 +35,7 @@ function App() {
         }
       />
       <Route
-        path="/characters/:id"
+        path="/character/:id"
         element={
           <PrivateRoute>
             <Layout>
@@ -45,7 +45,7 @@ function App() {
         }
       />
       <Route
-        path="/episodes/:id"
+        path="/episode/:id"
         element={
           <PrivateRoute>
             <Layout>
@@ -55,7 +55,7 @@ function App() {
         }
       />
       <Route
-        path="/locations/:id"
+        path="/location/:id"
         element={
           <PrivateRoute>
             <Layout>

@@ -41,7 +41,7 @@ export function LocationDetail() {
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="p-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-6">
-            {location.name}
+            Location: {location.name}
           </h1>
           <div className="space-y-4">
             <div className="flex items-center">
@@ -62,7 +62,7 @@ export function LocationDetail() {
             {characters?.map((character) => (
               <Link
                 key={character.id}
-                to={`/characters/${character.id}`}
+                to={`/character/${character.id}`}
                 className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
               >
                 <div className="flex items-center space-x-4">

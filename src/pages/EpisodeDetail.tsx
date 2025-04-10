@@ -45,7 +45,7 @@ export function EpisodeDetail() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden p-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          {episode.name}
+          Episode: {episode.name}
         </h1>
         <div className="text-gray-600 mb-6">
           {episode.episode} • Aired on {episode.air_date}
@@ -59,7 +59,7 @@ export function EpisodeDetail() {
               {characters?.map((character) => (
                 <Link
                   key={character.id}
-                  to={`/characters/${character.id}`}
+                  to={`/character/${character.id}`}
                   className="bg-gray-50 rounded-lg overflow-hidden hover:bg-gray-100 transition-colors"
                 >
                   <img

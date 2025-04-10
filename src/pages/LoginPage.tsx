@@ -30,7 +30,7 @@ export function LoginPage() {
       setError("");
       setLoading(true);
       await login(email, password);
-      navigate("/");
+      navigate("/characters");
     } catch (error) {
       setError(
         error instanceof Error ? error.message : "An unexpected error occurred"

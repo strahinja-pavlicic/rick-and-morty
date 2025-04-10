@@ -76,7 +76,7 @@ export function CharacterDetail() {
                   Location:
                 </span>
                 <Link
-                  to={`/locations/${character.location.url.split("/").pop()}`}
+                  to={`/location/${character.location.url.split("/").pop()}`}
                 >
                   <span className="text-gray-600">
                     {character.location.name}
@@ -100,7 +100,7 @@ export function CharacterDetail() {
               return (
                 <Link
                   key={episodeUrl}
-                  to={`/episodes/${episodeNumber}`}
+                  to={`/episode/${episodeNumber}`}
                   className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <span className="text-sm font-medium text-gray-900">
