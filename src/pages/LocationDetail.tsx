@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router";
-import { useLocation } from "@/hooks/useLocation";
-import { useMultipleCharacters } from "@/hooks/useCharacters";
+import { useLocation } from "@/hooks/useRickAndMortyApi";
+import { useMultipleCharacters } from "@/hooks/useRickAndMortyApi";
 
 export function LocationDetail() {
   const { id } = useParams<{ id: string }>();

@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router";
 
-import { useCharacter } from "@/hooks/useCharacters";
+import { useCharacter } from "@/hooks/useRickAndMortyApi";
 
 export function CharacterDetail() {
   const { id } = useParams<{ id: string }>();
@@ -75,13 +75,19 @@ export function CharacterDetail() {
                 <span className="font-semibold text-gray-700 w-24">
                   Location:
                 </span>
-                <Link
-                  to={`/location/${character.location.url.split("/").pop()}`}
-                >
+                {character.location.url ? (
+                  <Link
+                    to={`/location/${character.location.url.split("/").pop()}`}
+                  >
+                    <span className="text-gray-600">
+                      {character.location.name}
+                    </span>
+                  </Link>
+                ) : (
                   <span className="text-gray-600">
                     {character.location.name}
                   </span>
-                </Link>
+                )}
               </div>
               <div className="flex items-center">
                 <span className="font-semibold text-gray-700 w-24">Type:</span>

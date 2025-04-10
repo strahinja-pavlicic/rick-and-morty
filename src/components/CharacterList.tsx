@@ -5,7 +5,7 @@ import { AxiosError } from "axios";
 
 import { Character } from "@/types/character";
 import { InputSearch } from "@/components/InputSearch";
-import { useCharacters } from "@/hooks/useCharacters";
+import { useCharacters } from "@/hooks/useRickAndMortyApi";
 
 interface ErrorResponse {
   error: string;

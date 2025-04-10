@@ -3,8 +3,13 @@ import {
   getCharacters,
   getCharacterById,
   getMultipleCharacters,
+  getEpisodeById,
+  getLocationById,
 } from "@/services/routes";
+
 import { CharactersResponse, Character } from "@/types/character";
+import { Episode } from "@/types/episode";
+import { Location } from "@/types/location";
 
 // Hook for paginated/infinite list
 export const useCharacters = (searchQuery: string = "") => {
@@ -39,5 +44,23 @@ export const useMultipleCharacters = (ids: number[]) => {
     queryKey: ["multiple-characters", ids],
     queryFn: () => getMultipleCharacters(ids),
     enabled: ids && ids.length > 0,
+  });
+};
+
+// Hook for fetching a single episode
+export const useEpisode = (id: number) => {
+  return useQuery<Episode>({
+    queryKey: ["episode", id],
+    queryFn: () => getEpisodeById(id),
+    enabled: !!id,
+  });
+};
+
+// Hook for fetching a single location
+export const useLocation = (id: number) => {
+  return useQuery<Location>({
+    queryKey: ["location", id],
+    queryFn: () => getLocationById(id),
+    enabled: !!id,
   });
 };

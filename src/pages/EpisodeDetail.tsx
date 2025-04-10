@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router";
 
-import { useEpisode } from "@/hooks/useEpisode";
-import { useMultipleCharacters } from "@/hooks/useCharacters";
+import { useEpisode } from "@/hooks/useRickAndMortyApi";
+import { useMultipleCharacters } from "@/hooks/useRickAndMortyApi";
 
 export function EpisodeDetail() {
   const { id } = useParams<{ id: string }>();
