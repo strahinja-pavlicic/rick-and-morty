@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import { useInView } from "react-intersection-observer";
 import { AxiosError } from "axios";
 
 import { Character } from "@/types/character";
 import { InputSearch } from "@/components/InputSearch";
+import { CharacterCard } from "@/components/CharacterCard";
 import { useCharacters } from "@/hooks/useRickAndMortyApi";
 
 interface ErrorResponse {
   error: string;
 }
 
-export const CharacterList = () => {
+export function Characters() {
   const { ref, inView } = useInView();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -54,51 +54,7 @@ export const CharacterList = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {data.pages.flatMap((page) =>
               page.results.map((character: Character) => (
-                <Link
-                  to={`/character/${character.id}`}
-                  key={character.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                >
-                  <div className="relative">
-                    <img
-                      src={character.image}
-                      alt={character.name}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute top-2 right-2">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                          character.status === "Alive"
-                            ? "bg-green-100 text-green-800"
-                            : character.status === "Dead"
-                            ? "bg-red-100 text-red-800"
-                            : "bg-gray-100 text-gray-800"
-                        }`}
-                      >
-                        {character.status}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h2 className="text-xl font-bold mb-2 text-gray-800">
-                      {character.name}
-                    </h2>
-                    <div className="space-y-2 text-gray-600">
-                      <p className="flex items-center">
-                        <span className="font-semibold mr-2">Species:</span>
-                        {character.species}
-                      </p>
-                      <p className="flex items-center">
-                        <span className="font-semibold mr-2">Gender:</span>
-                        {character.gender}
-                      </p>
-                      <p className="flex items-center">
-                        <span className="font-semibold mr-2">Origin:</span>
-                        {character.origin.name}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
+                <CharacterCard key={character.id} character={character} />
               ))
             )}
           </div>
@@ -116,4 +72,4 @@ export const CharacterList = () => {
       )}
     </div>
   );
-};
+}
