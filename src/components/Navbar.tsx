@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 
-export function Navbar() {
+export const Navbar = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -34,4 +34,4 @@ export function Navbar() {
       </div>
     </nav>
   );
-}
+};

@@ -1,4 +1,7 @@
 import { Link, useParams } from "react-router";
+
+import { DetailSkeleton } from "@/components/DetailSkeleton";
+
 import { useLocation } from "@/hooks/useRickAndMortyApi";
 import { useMultipleCharacters } from "@/hooks/useRickAndMortyApi";
 
@@ -18,11 +21,7 @@ export function LocationDetail() {
   } = useMultipleCharacters(characterIds);
 
   if (isLoading || isCharactersLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
+    return <DetailSkeleton cardCount={6} />;
   }
 
   if (error || charactersError || !location) {

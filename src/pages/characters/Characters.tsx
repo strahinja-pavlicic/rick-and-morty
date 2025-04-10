@@ -5,6 +5,7 @@ import { AxiosError } from "axios";
 import { Character } from "@/types/character";
 import { InputSearch } from "@/components/InputSearch";
 import { CharacterCard } from "@/components/CharacterCard";
+import { CharactersSkeleton } from "@/components/CharactersSkeleton";
 import { useCharacters } from "@/hooks/useRickAndMortyApi";
 
 interface ErrorResponse {
@@ -38,9 +39,7 @@ export function Characters() {
     <div className="container mx-auto px-4 py-8">
       <InputSearch onSearch={handleSearch} placeholder="Search characters..." />
       {status === "pending" ? (
-        <div className="flex justify-center items-center min-h-[200px]">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-        </div>
+        <CharactersSkeleton />
       ) : status === "error" ? (
         <div className="flex justify-center items-center min-h-[200px]">
           <div className="text-red-500">
