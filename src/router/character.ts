@@ -2,9 +2,14 @@ import api from "@/utils/api";
 import { Character, CharactersResponse } from "@/types/character";
 
 export const getCharacters = async (
-  page: number = 1
+  page: number = 1,
+  searchQuery?: string
 ): Promise<CharactersResponse> => {
-  const response = await api.get(`/character?page=${page}`);
+  const params: Record<string, unknown> = { page };
+  if (searchQuery?.trim()) {
+    params.name = searchQuery.trim();
+  }
+  const response = await api.get(`/character`, { params });
   return response.data;
 };
 

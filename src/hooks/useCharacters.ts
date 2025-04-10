@@ -3,13 +3,15 @@ import { getCharacters, getCharacterById } from "@/router/character";
 import { CharactersResponse, Character } from "@/types/character";
 
 // Hook for paginated/infinite list
-export const useCharacters = () => {
+export const useCharacters = (searchQuery: string = "") => {
   return useInfiniteQuery<CharactersResponse>({
-    queryKey: ["characters"],
-    queryFn: ({ pageParam = 1 }) => getCharacters(pageParam as number),
+    queryKey: ["characters", searchQuery],
+    queryFn: ({ pageParam = 1 }) =>
+      getCharacters(pageParam as number, searchQuery),
     getNextPageParam: (lastPage) => {
       if (lastPage.info.next) {
-        return lastPage.info.next.split("=")[1];
+        const url = new URL(lastPage.info.next);
+        return parseInt(url.searchParams.get("page") || "1");
       }
       return undefined;
     },
