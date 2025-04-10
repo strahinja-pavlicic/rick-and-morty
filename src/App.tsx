@@ -4,6 +4,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { SignupPage } from "./pages/SignupPage";
 import { Characters } from "./pages/Characters";
 import { CharacterDetail } from "./pages/CharacterDetail";
+import { EpisodeDetail } from "./pages/EpisodeDetail";
 
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Layout } from "./components/Layout";
@@ -38,6 +39,16 @@ function App() {
           <PrivateRoute>
             <Layout>
               <CharacterDetail />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/episodes/:id"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <EpisodeDetail />
             </Layout>
           </PrivateRoute>
         }

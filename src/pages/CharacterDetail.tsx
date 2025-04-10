@@ -1,4 +1,5 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
+
 import { useCharacter } from "@/hooks/useCharacters";
 
 export function CharacterDetail() {
@@ -83,6 +84,25 @@ export function CharacterDetail() {
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="p-8 border-t">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Episodes</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {character.episode.map((episodeUrl) => {
+              const episodeNumber = episodeUrl.split("/").pop();
+              return (
+                <Link
+                  key={episodeUrl}
+                  to={`/episodes/${episodeNumber}`}
+                  className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <span className="text-sm font-medium text-gray-900">
+                    Episode {episodeNumber}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

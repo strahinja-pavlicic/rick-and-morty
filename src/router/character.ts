@@ -17,3 +17,10 @@ export const getCharacterById = async (id: number): Promise<Character> => {
   const response = await api.get(`/character/${id}`);
   return response.data;
 };
+
+export const getMultipleCharacters = async (
+  ids: number[]
+): Promise<Character[]> => {
+  const response = await api.get(`/character/${ids}`);
+  return response.data;
+};
