@@ -38,6 +38,6 @@ export const useMultipleCharacters = (ids: number[]) => {
   return useQuery<Character[]>({
     queryKey: ["multiple-characters", ids],
     queryFn: () => getMultipleCharacters(ids),
-    enabled: !!ids,
+    enabled: ids && ids.length > 0,
   });
 };

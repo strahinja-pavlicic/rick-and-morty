@@ -75,7 +75,13 @@ export function CharacterDetail() {
                 <span className="font-semibold text-gray-700 w-24">
                   Location:
                 </span>
-                <span className="text-gray-600">{character.location.name}</span>
+                <Link
+                  to={`/locations/${character.location.url.split("/").pop()}`}
+                >
+                  <span className="text-gray-600">
+                    {character.location.name}
+                  </span>
+                </Link>
               </div>
               <div className="flex items-center">
                 <span className="font-semibold text-gray-700 w-24">Type:</span>
