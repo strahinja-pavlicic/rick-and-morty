@@ -6,9 +6,9 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "@/services/firebase";
 import { AuthContext, AuthContextType } from "./authContext";
-import { useAuthError } from "../hooks/useAuthError";
+import { useAuthError } from "@/hooks/useAuthError";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);

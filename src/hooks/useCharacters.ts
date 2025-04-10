@@ -3,7 +3,7 @@ import {
   getCharacters,
   getCharacterById,
   getMultipleCharacters,
-} from "@/router/character";
+} from "@/services/routes";
 import { CharactersResponse, Character } from "@/types/character";
 
 // Hook for paginated/infinite list
