@@ -53,7 +53,7 @@ export function Login() {
             Login
           </CardTitle>
           <CardDescription className="text-center">
-            Enter your credentials to access your account
+            Welcome back! Please log in to your account
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -27,7 +27,11 @@ export const Navbar = () => {
           </Link>
         </div>
         <div className="ml-auto flex items-center space-x-4">
-          <Button variant="ghost" onClick={handleLogout}>
+          <Button
+            variant="ghost"
+            className="cursor-pointer"
+            onClick={handleLogout}
+          >
             Logout
           </Button>
         </div>
